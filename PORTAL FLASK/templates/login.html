@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="icon" type="imagem/png" href="../static/imgs/logo_capital.png">
+
+    <title>{{ titulo }}</title>
+</head>
+<body>
+    
+
+
+<!------ Include the above in your HEAD tag ---------->
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul id="messages" class="list unstyled">
+            {%for message in messages %}
+                <li class="alert alert-success">{{ message }}</li>
+            {% endfor %}
+        </ul>
+
+      {% endif %}
+  {% endwith %}
+
+  
+        
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-4 ">
+          <div class="jumbotron jumbotron-fluid bg-primary">
+            <div class="container">
+              <h1 class="display-1">TESTE DE PING MONITORAMENTO</h1>
+            </div>
+          </div>
+          <div class="card">
+            <i style="--clr: #cf80ee;"></i>
+            <i style="--clr: #87197e;"></i>
+            <i style="--clr: #290131;"></i>
+            <div class="card-body">
+              <h5 class="card-title">Login</h5>
+
+              <form action="{{ url_for('autenticar') }}" method="post">
+                <div class="form">
+                  <input name="re" type="text" class="form-control" id="floatingInput" placeholder="Usuario">
+                </div>
+                <div class="form">
+                  <input name="senha" type="password" class="form-control" id="floatingPassword" placeholder="Senha">
+                </div>
+
+                <div class="form">
+                  <button class="btn-primary" type="submit">Sign
+                    in</button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</body>
+</html>

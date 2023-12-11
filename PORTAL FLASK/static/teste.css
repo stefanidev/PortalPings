@@ -1,0 +1,138 @@
+:root{
+    --first-color: hsl(219, 69%, 56%);
+    --reserv-color: #011F26;
+    --back: #0a0f04;
+    --lines: #17664E;
+    --clr: black;
+
+    --fist-text: 'Sono', sans-serif;
+    --reserv-text: 'Quicksand', sans-serif;
+    --body-font:'Exo', sans-serif;
+    --h1-font-size: 2em;
+    --normal-font:16px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #01456b;
+}
+
+.container{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+}
+
+.particles{
+    position: relative;
+    display: flex;
+    z-index: 1;
+    padding: 0 20px;
+    
+}
+
+.particles span{
+    position: relative;
+    bottom: 30px;
+    width: 30px;
+    height: 30px;
+   /* background: #4fc3dc;*/
+    box-shadow: 0 0 0 10px transparent;
+    margin: 0 4px;
+    border-radius: 50px;
+    animation: animate 15s ease infinite;
+    animation-duration: calc(125s / var(--i));
+}
+.particles span:nth-child(even){
+    /*background: #ff2d75;*/
+    box-shadow: 0 0 0 10px transparent;
+}
+@keyframes animate {
+    0%{
+        transform: translateY(120vh) scale(0) rotate(0deg);
+        opacity: 100%;
+    }
+    20%{
+        transform: translateY(100vh) scale(1) rotate(0deg);
+        opacity: 50%;
+    }
+    100%{
+        transform: translateY(-50vh) scale(0.5) rotate(360deg);
+        opacity: 0%;
+    }
+}
+
+img{
+    width: 70px;
+    height: 70px;
+    opacity: 50%;
+}
+
+.quadro{
+    margin-left: -330px;
+    margin-top: -320px;
+    background: black;
+    border-radius: 10px;
+    width: 700px;
+    height: 485px;
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: #ffffff;
+}
+
+h2{
+    color: rgb(14, 13, 13);
+}
+
+.texto{
+    display: flex;
+    justify-content: center;
+    margin-top: 350px;
+}
+
+.form-control{
+    width: 300px;
+    height: 25px;
+    margin-left: 10px;
+    margin-top: 200px;
+    border-radius: 5px;
+}
+
+.form-control2{
+    width: 300px;
+    height: 25px;
+    margin-left: -328px;
+    border-radius: 5px;
+}
+
+
+.btn-primary{
+
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    transition: 0.5s;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover{
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 35px #1f151c;
+}

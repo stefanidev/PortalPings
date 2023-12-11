@@ -1,0 +1,166 @@
+/*variaveis no css*/
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #d30505;
+    --bs-gray: #288112;
+    --bs-gray-dark: #076d2e;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #910e56;
+    --bs-dark: #1a1a1b; 
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(150, 96, 221, 0.932)rgba(76, 15, 175, 0.836));
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { /* configuracoes do corpo do site*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*min-height: 100vh;*/
+    background: #01456b;
+}
+
+
+.display-1{
+    margin-top: 130px;
+    text-align: center; 
+    color: rgb(255, 254, 254);
+}
+.display-6{
+    margin-top: 10px;
+    text-align: center; 
+    color: rgb(2, 1, 1);
+}
+
+
+.card{/* modificacoes na parte onde ta login, senha e botao*/
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.card i{/* Animacao */
+    position: absolute;
+    inset: 0;
+    border: 2px solid #d29be0;
+    transition: 0.5s;
+}
+
+.card i:nth-child(1){/* Animacao */
+    border-radius: 37% 63% 62% 38% / 37% 22% 78% 63%;
+    animation: animate 6s linear infinite;
+}
+.card i:nth-child(2){/* Animacao */
+    border-radius: 35% 65% 32% 68% / 72% 31% 69% 28%;
+    animation: animate 4s linear infinite;
+}
+.card i:nth-child(3){/* Animacao */
+    border-radius: 35% 65% 16% 63% / 34% 62% 38% 28%;
+    animation: animate2 10s linear infinite;
+}
+
+@keyframes animate {/* Animacao */
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate2 {/* Animacao */
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+.card:hover i{/* Animacao */
+    border: 4px solid var(--clr);
+    filter: drop-shadow(0 0 20px var(--clr));
+}
+
+.card .card-body{/* modificacoes na parte onde ta login, senha e botao */
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card .card-body .card-title{/* Titulo "login" */
+    font-size: 2em;
+    color: #dadada;
+}
+
+.form{/* Formulario */
+    position: relative;
+    width: 300px;
+}
+
+input{/*Campo que insere login e senha */
+    position: relative;
+    width: 100%;
+    margin: 10px;
+    padding: 12px 20px;
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 40px;
+    font-size: 1.2em;
+    color: #ffffff;
+    box-shadow: none;
+    outline: none;
+}
+
+input::placeholder{ /* Escrita que esta no campo */
+    color:#fdfdfd;
+}
+
+button{ /* Botao de enviar os dados */
+    position: relative;
+    width: 100%;
+    margin: 10px;
+    padding: 12px 20px;
+    background: transparent;
+    border: 2px solid #050404;
+    border-radius: 40px;
+    font-size: 1.2em;
+    color: #030303;
+    box-shadow: none;
+    outline: none;
+}
+
+.btn-primary{ /* Botao de enviar os dados */
+    background: linear-gradient(45deg, #faf8fc, #91039e);
+    border: none;
+    cursor: pointer;
+}

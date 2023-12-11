@@ -1,0 +1,53 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<link rel="stylesheet" href="{{ url_for('static', filename='teste.css') }}">
+<div class= "container">
+    <div class="particles" >
+
+        <div class="" >
+            <textarea class="quadro" readonly="" class="" id="id_area" cols="15" rows="15">
+                {% if resposta is not none %}}
+                    {% for linha in resposta %}
+                    {{ linha }}
+                    {% endfor %}
+                {% else %}
+                Aguardando verificação de ping... 
+                {% endif %}
+            </textarea>
+        </div>
+
+        <div>
+            <form class="entrada" action="{{ url_for('pingar') }}" method="post" id="id_form">
+                <div>
+                   <input name="id_vantive" type="text" class="form-control2"  placeholder=" Insira o id_vantive " id="id">
+                   <input class="form-control" type="text" name="ip" id="id_ip" placeholder=" Insira o ip ">
+                   <input onclick="enviar()" class="btn-primary" type="button" value="PINGAR">
+                   </div>
+   
+            </form>
+         </div>
+    </div>
+</div>
+
+<script>
+    function enviar() {
+        let ip = document.getElementById('id_ip')
+        ip = ip.value 
+
+        let id = document.getElementById('id')
+        id = id.value 
+
+        let form = document.getElementById('id_form')
+
+        if(ip == "" || ip == null) {
+            window.alert('Por favor, inserir um IP.')
+        }if(id == "" || id == null) {
+            window.alert('Por favor, inserir um IP.')
+        }
+        else {
+            form.submit()
+        }
+    }
+
+</script>
+{% endblock %}

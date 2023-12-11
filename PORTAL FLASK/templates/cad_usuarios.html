@@ -1,0 +1,99 @@
+{% extends "template.html" %}
+
+{% block conteudo %}
+<link rel="stylesheet" href="{{ url_for('static', filename='cad_usuario.css') }}">
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <ul id="messages" class="list unstyled">
+        {%for message in messages %}
+            <li class="alert alert-success">{{ message }}</li>
+        {% endfor %}
+    </ul>
+
+    {% endif %}
+{% endwith %}
+
+
+
+
+<form class= "form" action="{{ url_for('cadastrando_usuario') }}" method="post" id="formId">
+    <h1> CADASTRO DE NOVOS USUARIOS</h1>
+    <div class="row">
+        <div class="form-group">
+            <label>NOME</label>
+            <input type="text" class="entrada" maxlength="30" class="form-control" id="id_vantive" placeholder="Nome" name="nome">
+            
+        </div>
+        <div class="form-group">
+            <label>RE</label>
+            <input type="text" class="entrada" maxlength="9" class="form-control" id="id_cliente" placeholder="Inserir RE" name="re">
+            
+        </div>
+        <div class="form-group ">
+            <label>SENHA</label>
+            <input type="text" class="entrada" maxlength="8" class="form-control" id="id_ip" placeholder="Senha do usuário" name="senha">
+        </div>
+        <div class="form-group" style="margin-top: 0px;">
+            <label>PERMISSÃO</label>
+            <select class="form-control" name="permissao" id="id_tipo_cliente">
+                <option value="SELECIONE">SELECIONE</option>
+                <option value="administrador">Administrador</option>
+                <option value="nivel-1">Usuario</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div style="text-align: center;">
+            <button type="submit" class="btn">CADASTRAR</button>          
+    </div>
+</form>
+
+<table class="table">
+    <thead class="thead-default">
+            <tr>
+                <th>NOME</th>
+                <th>RE</th>
+                <th>PERMISSÃO</th>
+                <th>EXCLUIR</th>
+            </tr>
+    </thead>
+
+    
+    <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.re }}</td>
+            <td>{{ usuario.permissao }}</td>
+            
+            <td>
+                <div style="height: 40px; width: 40px; display: inline-block;">
+                    <a style="cursor:pointer;" onclick="perguntar('{{ usuario.nome }}', 
+            '{{ usuario.re }}')">
+                        <img  style="height: 100%; width: 100%" src="../static/imgs/excluir.png" alt="">
+                    </a>
+                </div>
+
+        </tr>
+        {% endfor%} 
+    </tbody>
+
+</table>
+
+
+<script>
+        
+    function perguntar(nome, re) {
+        
+        let resp = confirm(`Excluindo usuário: ${nome} RE: ${re}`)
+
+        if(resp){
+            window.location.href = `/delete_usuario?re=${re}&nome=${nome}`
+        } else {
+            window.alert('Exclusão cancelada.')
+        }
+    }
+</script>
+
+{% endblock %}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <title>Monitoramento</title>
+
+    <style>
+            nav {
+
+            width: 100%;
+
+            display: flex;
+
+            background-color: rgb(130, 24, 172);
+
+            z-index: 99;
+
+        }
+
+        nav a {
+
+            color: #fff;
+
+            margin: auto 40px auto 60px;
+
+            font-size: 16px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+    }
+
+        nav li {
+
+            float: left;
+
+            list-style: none;
+
+            margin-left: 20px;
+
+            padding-top: 10px;
+
+        }
+         
+
+        
+
+    </style>
+
+    <script>
+        setTimeout(function() {
+            window.location.reload(1);
+        }, 300000);
+
+    </script>
+</head>
+<body>
+
+
+    
+<div class="container"> 
+
+    <div class="page-header">  
+        <div style="float: left;">
+            <h1> {{ titulo }}</h1>
+        </div>
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index')}}">HOME</a></li>
+                    <li><a href="{{ url_for('estrategicos')}}"> ESTRATÉGICOS</a></li>
+                    <li><a href="{{ url_for('hospitais') }}">HOSPITAIS</a></li>
+                    <select name="" id="">
+                        <option value="">CADASTRO DE IP</option>
+                        <option value="">ALTERAR E EXCLUIR</option>
+                    </select>
+                    <li><a href="{{ url_for('cadastro_cliente') }}">CADASTRO DE IP</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <br>
+
+    {% block conteudo %}{% endblock %}
+
+</div>
+    
+
+</body>
+</html>

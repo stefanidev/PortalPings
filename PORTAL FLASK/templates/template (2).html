@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+    <link rel="icon" type="imagem/png" href="../static/imgs/logo_capital.png">
+    <title>{{ titulo }}</title>
+</head>
+<body>
+
+    <div class="navegacao">
+        <ul>
+            <img src="../static/imgs/vivo_capital.png" style="width: 70px; height: 70px; margin-right: 20px; margin-bottom: 20px" alt="">
+            
+            <li class="lista active">
+                <b></b>
+                <b></b>
+                <a href="{{ url_for('teste')}}">
+                    <span class="icone"><ion-icon name="globe-outline"></ion-icon></span>
+                    <span class="titulo">Teste de ping</span>
+                </a>
+            </li>            
+            
+            {% if permissao == 'administrador'%}
+                <li class="lista">
+                    <b></b>
+                    <b></b>
+                    <a href="{{ url_for('cadastro_usuario') }}">
+                        <span class="icone"><ion-icon name="person-add-outline"></ion-icon></span>
+                        <span class="titulo">Usuario</span>
+                    </a>
+                </li>
+            {% endif %}  
+
+            <li class="lista">
+                <b></b>
+                <b></b>
+                <a href="{{ url_for('ajuda') }}">
+                    <span class="icone"><ion-icon name="help-outline"></ion-icon></span>
+                    <span class="titulo">Ajuda</span>
+                </a>
+            </li>
+            
+            <li class="lista">
+                <b></b>
+                <b></b>
+                <a href="{{ url_for('logout') }}">
+                    <span class="icone"><ion-icon name="exit-outline"></ion-icon></span>
+                    <span class="icone">Sair</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="toggle">
+        <ion-icon name="menu-outline" class="open"></ion-icon>
+        <ion-icon name="close-circle-outline" class="close"></ion-icon>
+    </div>
+
+<div class="container-fluid" style="margin-top: 90px;">
+    
+    {% block conteudo %}{% endblock %}
+</div>
+
+<script>
+    setTimeout(function() {
+        window.location.reload(1);
+    }, 300000);
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
+</script>
+    
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js">
+</script>
+
+    <script>
+
+        let menuToggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navegacao');
+        menuToggle.onclick = function(){
+            menuToggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+
+        let list = document.querySelectorAll('.lista');
+        for(let i = 0; i<list.length; i++){
+            list[i].onclick = function(){
+                let j = 0;
+                while(j < list.length){
+                    list[j++].className = 'lista'
+                }
+                list[i].className = 'lista active'
+            }
+        }
+    </script>
+</body>
+</html>
